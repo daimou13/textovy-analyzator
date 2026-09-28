@@ -1,0 +1,1 @@
+print("Textový analyzátor")
