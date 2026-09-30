@@ -41,3 +41,25 @@ if username in users and users[username] == password:
 else:
     print("Unregistered user, terminating the program.")
     quit()
+
+print("-" * 40)
+print(f"We have {len(TEXTS)} texts to be analyzed.")
+print("-" * 40)
+
+text_number = input(
+    f"Enter a number btw. 1 and {len(TEXTS)} to select: "
+)
+
+if not text_number.isdigit():
+    print("Invalid input, terminating the program.")
+    quit()
+
+text_number = int(text_number)
+
+if text_number < 1 or text_number > len(TEXTS):
+    print("Invalid text number, terminating the program.")
+    quit()
+
+selected_text = TEXTS[text_number - 1]
+
+print(selected_text)
