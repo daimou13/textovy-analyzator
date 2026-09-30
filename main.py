@@ -62,4 +62,38 @@ if text_number < 1 or text_number > len(TEXTS):
 
 selected_text = TEXTS[text_number - 1]
 
-print(selected_text)
+words = selected_text.split()
+
+clean_words = []
+
+for word in words:
+    clean_word = word.strip(".,")
+    clean_words.append(clean_word)
+
+titlecase_words = 0
+uppercase_words = 0
+lowercase_words = 0
+numeric_strings = 0
+numbers_sum = 0
+
+for word in clean_words:
+    if word.istitle():
+        titlecase_words += 1
+
+    if word.isupper():
+        uppercase_words += 1
+
+    if word.islower():
+        lowercase_words += 1
+
+    if word.isnumeric():
+        numeric_strings += 1
+        numbers_sum += int(word)
+
+print("-" * 40)
+print(f"There are {len(clean_words)} words in the selected text.")
+print(f"There are {titlecase_words} titlecase words.")
+print(f"There are {uppercase_words} uppercase words.")
+print(f"There are {lowercase_words} lowercase words.")
+print(f"There are {numeric_strings} numeric strings.")
+print(f"The sum of all the numbers {numbers_sum}")
