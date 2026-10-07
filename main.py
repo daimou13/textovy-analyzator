@@ -97,3 +97,21 @@ print(f"There are {uppercase_words} uppercase words.")
 print(f"There are {lowercase_words} lowercase words.")
 print(f"There are {numeric_strings} numeric strings.")
 print(f"The sum of all the numbers {numbers_sum}")
+
+word_lengths = {}
+
+for word in clean_words:
+    word_length = len(word)
+
+    if word_length in word_lengths:
+        word_lengths[word_length] += 1
+    else:
+        word_lengths[word_length] = 1
+
+print("-" * 40)
+print("LEN| OCCURRENCES          |NR.")
+print("-" * 40)
+
+for length in sorted(word_lengths):
+    count = word_lengths[length]
+    print(f"{length:>3}|{'*' * count:<20}|{count}")
